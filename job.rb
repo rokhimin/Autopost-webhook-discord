@@ -1,6 +1,10 @@
 require 'discordrb/webhooks'
+require 'ostruct'
+require 'yaml'
 
-WEBHOOK_URL = 'https://discordapp.com/api/webhooks/595513961873670144/sgcJcOL8c9Sgkw4f8wAaiwajwPPn-cjQRixbB3ZMDmP7fcadHaZwsQDqiY1h1tx77604'.freeze
+CONFIG = OpenStruct.new YAML.load_file 'config/config.yaml'
+
+WEBHOOK_URL = CONFIG.discord.freeze
 
 client = Discordrb::Webhooks::Client.new(url: WEBHOOK_URL)
 client.execute do |builder|
