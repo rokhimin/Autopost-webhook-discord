@@ -1,7 +1,7 @@
 task :default => [:welcome]
 
 task :run do
-    sh 'ruby job.rb'
+  sh 'ruby job.rb'
 end
 
 task :welcome do
